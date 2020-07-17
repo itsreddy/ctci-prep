@@ -47,5 +47,27 @@ def merge_sort(array):
     
     return split(array)
 
+def quick_sort(array):
+    def partition(array, start, end):
+        pivot = array[end]
+        j = start
+        for i in range(start, end+1):
+            if array[i] <= pivot:
+                array[i], array[j] = array[j], array[i]
+                j += 1
+            
+        return array, j - 1
+
+    def helper(array, start, end):
+        if start < end:
+            array, partition_index = partition(array, start, end)
+            array = helper(array, start, partition_index-1)
+            array = helper(array, partition_index+1, end)
+        return array
+    
+    return helper(array, 0, len(array)-1)
+
+
+
 a = [3,1,2,6,1,8,9]
-print(merge_sort(a))
+print(quick_sort(a))
