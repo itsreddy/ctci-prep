@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Sort {
 
-    public static ArrayList<Integer> bubbleSortList (ArrayList<Integer> arr){
+    public static List<Integer> bubbleSortList (List<Integer> arr){
         for (int i = 0; i < arr.size(); i++) {
             for (int j = i; j < arr.size(); j++) {
                 if (arr.get(i) > arr.get(j)){

@@ -2,6 +2,7 @@ package com.tutorial;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SortMain {
 
@@ -16,7 +17,7 @@ public class SortMain {
 
         Integer[] boxedArray = Arrays.stream(array).boxed().toArray(Integer[]::new);
 
-        ArrayList<Integer> arraylist = new ArrayList<Integer>(Arrays.asList(boxedArray));
+        List<Integer> arraylist = new ArrayList<Integer>(Arrays.asList(boxedArray));
 //        array = Sort.bubbleSort(array);
 //        System.out.println(Arrays.toString(array));
 

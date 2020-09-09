@@ -1,4 +1,7 @@
 package com.tutorial;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -72,4 +75,37 @@ public class UserMain {
 
         scanner.close();
     }
+
+    public static void runToString(){}
+
+    public static void testPolymorphism(){
+        Student user1 = new Student("Prash Reddy Duggirala");
+        User user2 = new User("Prash Reddy");
+
+        User[] userArray = {user1, user2};
+
+        for (int i = 0; i < userArray.length; i++) {
+            System.out.println(userArray[i]);
+        }
+
+    }
+
+    public static void testHello() throws FileNotFoundException {
+        Scanner scan = new Scanner(new File("src/names.txt"));
+        List<String> names = new ArrayList<String>();
+        while (scan.hasNext()){
+            names.add(scan.nextLine());
+        }
+        List<User> userArray = new ArrayList<User>();
+        userArray.add(new User(names.get(0)));
+        userArray.add(new Student(names.get(1)));
+        userArray.add(new Teacher(names.get(2)));
+
+        for (int i = 0; i < userArray.size(); i++) {
+//            System.out.println(userArray.get(i));
+            userArray.get(i).sayHello();
+        }
+
+    }
+
 }
