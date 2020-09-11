@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MazeSolver {
 
     private static boolean found = false;
-    private static ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
+    private static ArrayList<Position> path = new ArrayList<Position>();
 
     private static ArrayList<ArrayList<Integer>> loadMaze(String filePath) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(filePath));
@@ -29,7 +29,7 @@ public class MazeSolver {
         return array;
     }
 
-    public static ArrayList<ArrayList<Integer>> runSolver() throws FileNotFoundException {
+    public static ArrayList<Position> runSolver() throws FileNotFoundException {
         ArrayList<ArrayList<Integer>> matrix = loadMaze("MazeInputs/maze.txt");
 //        ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
 
@@ -55,7 +55,7 @@ public class MazeSolver {
 
         if(matrix.get(row).get(col) == 0) return;
 
-        ArrayList<Integer> currentPosition = new ArrayList<Integer>(Arrays.asList(row,col));
+        Position currentPosition = new Position(row, col);
         path.add(currentPosition);
 
         if(matrix.get(row).get(col) == 2){
